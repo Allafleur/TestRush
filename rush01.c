@@ -10,7 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include <unistd.h>
+#include "ft_putchar.c"
 
 void	ft_putchar(char c);
 
@@ -18,23 +20,16 @@ void	rush(int x, int y)
 {
 	int	i;
 	int	j;
-	int	count;
 
 	i = 1;
-	j = 2;
-	count = 0;
-	ft_putchar('/');
 	while (i <= y)
 	{
-		if (count == 0)
-			count++;
-		else
-			j = 1;
+	    j = 1;
 		while (j <= x)
 		{
-			if (((i == y && j == x)) && (j != 1 && i != 1))	
+			if ((i == y && j == x) || (j == 1 && i == 1))
 				ft_putchar('/');
-			else if (((j == x) && (i == 1) || (i == y) && (j == 1)))
+			else if ((j == x && i == 1) || (i == y && j == 1))
 				ft_putchar('\\');
 			else if ((i == 1) || (i == y) || (j == 1) || (j == x))
 				ft_putchar('*');
